@@ -135,6 +135,14 @@ table {
   box-sizing: border-box;
 }
 
+/* variables */
+:root {
+  --primary: rgba(85, 170, 235, 0.9);
+  --secondary: rgba(63, 233, 89, 0.8);
+  --bg: #cecbcb;
+  --accent: #cf3732;
+}
+
 /* General */
 
 a {
@@ -142,15 +150,11 @@ a {
   color: white;
 }
 
-.container h1 {
-  font-size: 20px;
-  font-weight: bold;
-}
-
 .container {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 32px;
+  width: 100%;
 }
 
 .flex {
@@ -160,20 +164,23 @@ a {
 }
 
 .btn {
-  padding: 17px 35px;
-  background-color: #cf3732;
+  padding: 12px 35px;
   display: inline-block;
   color: white;
   border-radius: 50px;
 }
 
 .btn-primary {
+  background-color: var(--accent);
+}
+
+.btn-secondary {
   font-size: 20px;
   background: none;
   border: 1px solid white;
 }
 
-.btn-secondary {
+.btn-tertiary {
   background-color: #ece6e6;
   color: #000;
 }
@@ -187,22 +194,27 @@ a {
 }
 
 .squares {
-  width: 40px;
-  text-align: center;
+  margin-bottom: 10px;
 }
 
 .square {
   width: 10px;
   height: 10px;
   background-color: rgb(161, 158, 158);
+  margin-right: 5px;
+  display: inline-block;
 }
 
-.center {
+/* .center {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   padding-bottom: 35px;
+} */
+
+.text-center {
+  text-align: center;
 }
 
 .heading {
@@ -217,20 +229,38 @@ a {
   line-height: 1.3;
 }
 
+.justify-start {
+  justify-content: flex-start;
+}
+
+.flexible-image {
+  width: 100%;
+  height: auto;
+}
+
 /* Header */
 
-header {
+.header {
   padding: 20px 0;
+  top: 0;
   position: absolute;
   width: 100%;
 }
 
-.nav ul li {
-  margin-left: 25px;
+.brand {
+  font-size: 32px;
+  margin-right: 160px;
 }
 
-.social-nav a {
-  margin-left: 25px;
+.nav-menu a {
+  font-size: 20px;
+}
+.nav-menu li {
+  margin-left: 24px;
+}
+
+.social-items a {
+  font-size: 16px;
 }
 
 /* Home */
@@ -241,14 +271,16 @@ header {
       rgba(85, 170, 235, 0.9),
       rgba(63, 233, 89, 0.8)
     ),
-    url("./assets/home-bg.jpg") 0 100%;
+    url("./assets/home-bg.jpg") center center no-repeat;
   color: white;
   background-size: cover;
-  padding: 150px 0;
+  display: flex;
+  align-items: center;
+  height: 100vh;
 }
 
-.home-text {
-  width: 47%;
+.cols {
+  flex: 0 1 47%;
   line-height: 1.1;
 }
 
@@ -256,34 +288,29 @@ header {
   font-size: 54px;
 }
 
-.video {
-  width: 47%;
-}
-
 .video iframe {
   width: 100%;
   height: 290px;
 }
 
-.btn-box {
-  width: 78%;
-  padding-top: 30px;
+.enquiry {
+  margin-left: 32px;
+  text-transform: uppercase;
 }
 
 /* About */
 
-.image {
-  width: 200px;
+.about {
+  position: relative;
 }
-
-.image img {
-  width: 100%;
-  margin-bottom: -102px;
-  /* display: inline-block; */
-}
-
 .col-1-1-3 {
   flex: 0 1 30%;
+}
+
+.image {
+  position: absolute;
+  width: 20%;
+  bottom: 0;
 }
 
 .col-1-2-3 {
@@ -323,8 +350,11 @@ header {
 }
 
 .img-box {
-  width: 280px;
   font-size: 0;
+}
+
+.flex-40 {
+  flex: 0 1 40%;
 }
 
 .img-box img {
@@ -338,7 +368,6 @@ header {
 .blog-text p {
   padding: 20px 0;
 }
-
 .blog-text .date {
   padding-bottom: 25px;
   display: inline-block;
@@ -352,10 +381,18 @@ header {
   color: #cf3732;
 }
 
-.col-1-2 {
+.blog-box {
   background-color: white;
   flex: 0 1 48%;
   margin-bottom: 45px;
+}
+
+.flex-60 {
+  flex: 0 1 60%;
+}
+
+.col-1-2 {
+  flex: 0 1 48%;
 }
 
 /* Work */
@@ -367,6 +404,7 @@ header {
 
 .work-image img {
   width: 100%;
+  border-radius: 5px;
 }
 
 /* Contact */
@@ -377,10 +415,6 @@ header {
     rgba(85, 170, 235, 0.9),
     rgba(63, 233, 89, 0.8)
   );
-}
-
-.inputs {
-  flex: 0 1 65%;
 }
 
 .input-box {
@@ -399,13 +433,10 @@ textarea {
   margin-bottom: 20px;
 }
 
-.map-box {
-  align-self: flex-start;
-}
-
 .map {
-  width: 280px;
-  height: 280px;
+  width: 300px;
+  height: 300px;
+  align-items: flex-start;
 }
 
 .map iframe {
@@ -418,7 +449,6 @@ textarea {
 
 footer {
   background-color: black;
-  padding-top: 100px;
 }
 
 .footer-flex {
@@ -427,7 +457,7 @@ footer {
 }
 
 .col-1-4 {
-  flex: 0 1 35%;
+  flex: 0 1 30%;
 }
 
 .footer .heading {
@@ -442,29 +472,28 @@ footer {
   flex: 0 1 20%;
   display: flex;
   flex-direction: column;
-  padding-bottom: 50px;
 }
 
 .col a {
   margin-bottom: 10px;
   color: #cecbcb;
   display: inline-block;
+  margin-bottom: 20px;
 }
 
 .border {
   border-bottom: 1px solid gray;
 }
 
-.footer .footer-nav {
-  padding: 50px 0;
-}
-
 small {
-  color: rgb(126, 123, 123);
+  color: #cecbcb;
+}
+.footer-nav {
+  padding-top: 60px;
 }
 
 .sub-footer {
-  width: 70%;
+  padding-right: 120px;
   justify-content: center;
   color: #cecbcb;
 }
